@@ -1,38 +1,179 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  &:hover {
-    filter: drop-shadow(0 0 2em blue);
+
+
+
+
+
+
+
+
+
+.todolist{
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(225deg, #ffc008,#ce584e , #393448);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  h1, h2{
+    text-shadow: 0 0 5px rgba(#fff, 0.6);
+    margin-bottom: 30px;
+  }h2{
+    font-size: 24px;
   }
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  &__wrapper{
+    width: 1000px;
+    height: 600px;
+    background-color: #393448;
+    border-radius: 20px;
+    box-shadow: -50px 50px 60px rgba(#000, 0.5);
+    display: flex;
+    overflow: hidden;
   }
-  to {
-    transform: rotate(360deg);
+  .todolist__bg{
+    width: 200px;
+    background: url('/bg.png');
+    background-size: cover;
   }
-}
+  .todolist__bg,
+  .todolist__tasks,
+  .todolist__categs{
+    padding: 20px;
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
   }
-}
+  
 
-.card {
-  padding: 2em;
-}
+  input,
+  select{
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 16px;
+    border: none;
+    background: rgba(#fff, 0.2);
+  }
 
-.read-the-docs {
-  color: #888;
+
+
+  .todolist__tasks{
+    flex: 1;
+
+    &-form{
+      margin-bottom: 40px;
+    }
+
+    &-list{
+      &-item{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        &.done{
+          text-decoration: line-through;
+        }
+        color: rgba(#fff, 0.9);
+        &:before{
+          content: '';
+          display: block;
+          height: 20px;
+          width: 20px;
+          background: grey;
+          border-radius: 8px;
+          margin-right: 10px;
+        }
+        &-check{
+          height: 30px;
+          width: 30px;
+          background: rgba(#fff, 0.2);
+          border-radius: 50%;
+          transition: 500ms ease all;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  input[type="checkbox"]{
+    position: absolute;
+    left: -99999px;
+  }
+
+  input:checked + .todolist__tasks-list-item-check{
+    background: #00bbcf;
+    &:before{
+      content: '✔️';
+      color: #fff;
+    }
+  }
+  .todolist__categs{
+    &-form{
+      margin-bottom: 40px;
+    }
+    &-list{
+      &-item{
+        display: flex;
+        margin-bottom: 20px;
+        color: rgba(#fff, 0.9);
+        &:before{
+          content: '';
+          display: block;
+          height: 20px;
+          width: 20px;
+          background: grey;
+          border-radius: 8px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }
